@@ -7,8 +7,8 @@ const showEmail = document.querySelector('.show-email')
 
 subscribeForm.addEventListener('submit', function(event){
     event.preventDefault()
-    
-    fetch("https://jsonplaceholder.typicode.com/posts", {
+    if(friendName.value && friendEmail.value){
+        fetch("https://jsonplaceholder.typicode.com/posts", {
         method: 'POST',
         body:JSON.stringify({
                 title: friendName.value,
@@ -22,13 +22,15 @@ subscribeForm.addEventListener('submit', function(event){
         .then(response => response.json())
         .then(data => {
             showName.textContent = `Thaks for sharing with: "${data.title}"`
-            showEmail.textContent = `An invitation email with be sent to: "${data.body}"`
+            showEmail.textContent = `An invitation email will be sent to: "${data.body}"`
         })
         setTimeout(() => {
             showName.textContent = ''
             showEmail.textContent = ''
                 
-            }, 5000);
+            }, 6000);
+    }
+    
     
     subscribeForm.reset()
 })

@@ -16,7 +16,7 @@ html, body{
     font-family: "Arial Rounded MT Bold" ;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 20% ;
+    grid-template-rows: 20% auto 10%;
 }
 .page-header{
     grid-column-start: 2;
@@ -100,3 +100,13 @@ footer a{
     text-decoration: none;
     cursor: pointer;
 }
+@media only screen and (max-width: 768px) {
+
+    .container{
+        display: block;
+        font-size: 1.5em;
+    }
+    .first-section, .second-section, .page-header{
+        background-color: whitesmoke;
+    }
+  }
